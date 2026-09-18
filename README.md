@@ -36,10 +36,12 @@ domain — once `hello@hellsternpress.com` is created, change this one line and
 widen the SPF record, which today reads `v=spf1 -all` (the domain declares it
 sends no mail at all).
 
-**2. Add the author photograph.**
-Save it as `assets/img/author.jpg` — portrait orientation, 4:5, at least
-800 × 1000 px. The "Portrait forthcoming" placeholder disappears by itself once
-the file exists. The page renders it in grayscale to match the rest of the design.
+**2. Author photograph — done.**
+`assets/img/author.jpg`, cropped to 4:5 and stripped of EXIF. It is shown in
+full colour deliberately: the page is otherwise near-monochrome, so the robe is
+the one warm element on the site. To replace it, drop in another 4:5 image at
+the same path. If the file is ever missing, a "Portrait forthcoming" placeholder
+takes its place automatically.
 
 **3. Confirm the press name.**
 The brief said *Hellstern Press*; the logo says *Hellstern Schwegler Press*. The

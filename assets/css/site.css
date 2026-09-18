@@ -349,7 +349,6 @@ p { margin: 0 0 1.35em; }
   max-width: 100%;
   background: var(--paper-2);
   object-fit: cover;
-  filter: grayscale(1) contrast(0.95);
 }
 
 .portrait--empty {
