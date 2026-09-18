@@ -5,5 +5,5 @@ window.HSP = {
   // Google Apps Script web app URL, ending in /exec. See README.md.
   signupEndpoint: "",
   // Fallback + contact address.
-  contactEmail: "hello@hellsternschweglerpress.com"
+  contactEmail: "hello@hellsternpress.com"
 };

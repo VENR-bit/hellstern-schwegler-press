@@ -22,12 +22,13 @@ Everything configurable lives in `assets/js/config.js`:
 ```js
 window.HSP = {
   signupEndpoint: "",                                  // see below
-  contactEmail: "hello@hellsternschweglerpress.com"    // placeholder — change this
+  contactEmail: "hello@hellsternpress.com"             // create this mailbox
 };
 ```
 
 Until `signupEndpoint` is set, the form still works: it opens the reader's mail
-app addressed to `contactEmail`. Nothing is broken on day one.
+app addressed to `contactEmail`. Nothing is broken on day one — but that mailbox
+has to exist, or those messages go nowhere.
 
 **2. Add the author photograph.**
 Save it as `assets/img/author.jpg` — portrait orientation, 4:5, at least
@@ -112,6 +113,16 @@ python3 -m http.server 8777 --directory press-site
 ```
 
 Then open http://localhost:8777.
+
+## Domain
+
+The site is served from GitHub Pages at **hellsternpress.com**, set by the
+`CNAME` file at the repo root. Do not delete or rename that file — Pages reads
+it on every build, and removing it drops the custom domain.
+
+DNS lives at Infomaniak. The apex needs GitHub's four A and four AAAA records,
+and `www` a CNAME to `venr-bit.github.io.`; `hellsternpress.ch` is set up there
+as a redirect to the `.com`.
 
 ## Rights
 
