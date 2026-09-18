@@ -104,6 +104,25 @@ unhides the links and hides the button, so the site is never left without
 navigation if scripting is off. The panel closes on Escape (returning focus to
 the button), on an outside click, and on following a link.
 
+## The mark
+
+`assets/img/star-mono.png` is the eight-pointed star, lifted off its navy ground
+into an alpha channel. The RGB is near-black ink and CSS inverts it to pale in
+dark mode via `filter: invert(var(--logo-invert))`, the same mechanism the
+handwritten title uses — so one file serves both themes.
+
+The favicon keeps the brand gold (`star-gold.png`, plus `favicon-180.png` for
+iOS), because gold stays legible against both light and dark browser chrome
+where a themed file cannot follow.
+
+To re-extract from a new source: gold separates from navy on `R - B`, mapped to
+alpha over roughly 5..115, median-filtered to drop JPEG noise, trimmed and
+padded to square.
+
+Note the mark is sized a little larger than the previous ringed mandala
+(2.7rem in the masthead, 14cqw on the cover). The bare star has no outer ring,
+so it reads optically smaller in the same box.
+
 ## Design notes
 
 - **The cover is drawn in CSS, at the real trim.** The 2:3 proportion is the
