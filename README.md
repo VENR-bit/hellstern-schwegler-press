@@ -97,8 +97,13 @@ action URL into `signupEndpoint` instead.
 - **One moving element.** The hairline under the title rises and falls on a slow
   breath cycle — four seconds in, five and a half out. It stops entirely under
   `prefers-reduced-motion`.
-- Light and dark themes are both defined; the page follows the reader's system
-  setting.
+- **Light and dark are both fully designed**, and the reader can choose. The
+  half-disc button in the masthead flips the theme and turns over to show its
+  other half; the choice is kept in `localStorage` under `hsp-theme`. With no
+  stored choice the page follows the reader's system setting and keeps tracking
+  it live. A tiny inline script in each `<head>` stamps the stored choice before
+  first paint, so there is no flash of the wrong theme — keep it inline and keep
+  it first, or the flash comes back.
 
 ## Local preview
 

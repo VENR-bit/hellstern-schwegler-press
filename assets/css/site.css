@@ -17,6 +17,7 @@
   --cover-rule: #DBDCE2;
   --book-shadow: 0 1px 1px rgba(21,22,26,.05), 0 20px 44px -20px rgba(21,22,26,.30);
   --logo-invert: 0;
+  color-scheme: light;
 
   --measure: 34rem;
   --frame: 62rem;
@@ -45,6 +46,7 @@
     --cover-rule: #363A47;
     --book-shadow: 0 1px 1px rgba(0,0,0,.45), 0 20px 44px -20px rgba(0,0,0,.8);
     --logo-invert: 1;
+    color-scheme: dark;
   }
 }
 
@@ -60,7 +62,10 @@
   --cover-rule: #363A47;
   --book-shadow: 0 1px 1px rgba(0,0,0,.45), 0 20px 44px -20px rgba(0,0,0,.8);
   --logo-invert: 1;
+  color-scheme: dark;
 }
+
+:root[data-theme="light"] { color-scheme: light; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -596,4 +601,49 @@ p { margin: 0 0 1.35em; }
     grid-template-columns: 13.5rem minmax(0, 1fr);
     gap: 2.5rem;
   }
+}
+
+
+/* --- theme toggle ---------------------------------------------------------
+   Half-filled disc: it turns over to show the other half. No stored choice
+   means the page keeps following the reader's system setting. */
+
+.masthead__end {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  flex-wrap: wrap;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  flex: none;
+  transition: color 160ms ease;
+}
+.theme-toggle:hover { color: var(--ink); }
+
+.theme-toggle__icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: block;
+  transition: transform 420ms cubic-bezier(.4, 0, .2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle__icon { transform: rotate(180deg); }
+}
+:root[data-theme="dark"] .theme-toggle__icon { transform: rotate(180deg); }
+:root[data-theme="light"] .theme-toggle__icon { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__icon { transition: none; }
 }
