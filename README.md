@@ -22,13 +22,19 @@ Everything configurable lives in `assets/js/config.js`:
 ```js
 window.HSP = {
   signupEndpoint: "",                                  // see below
-  contactEmail: "hello@hellsternpress.com"             // create this mailbox
+  contactEmail: "caecilia@schwegler.ch"                // until hello@ exists
 };
 ```
 
 Until `signupEndpoint` is set, the form still works: it opens the reader's mail
-app addressed to `contactEmail`. Nothing is broken on day one — but that mailbox
-has to exist, or those messages go nowhere.
+app addressed to `contactEmail`. That address must be a real, monitored inbox,
+or those messages go nowhere.
+
+`contactEmail` currently points at an existing personal inbox, because no
+mailbox exists on the domain yet. Infomaniak includes one free address with the
+domain — once `hello@hellsternpress.com` is created, change this one line and
+widen the SPF record, which today reads `v=spf1 -all` (the domain declares it
+sends no mail at all).
 
 **2. Add the author photograph.**
 Save it as `assets/img/author.jpg` — portrait orientation, 4:5, at least

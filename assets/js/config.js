@@ -4,6 +4,7 @@
 window.HSP = {
   // Google Apps Script web app URL, ending in /exec. See README.md.
   signupEndpoint: "",
-  // Fallback + contact address.
-  contactEmail: "hello@hellsternpress.com"
+  // Contact + signup fallback address. Swap this for hello@hellsternpress.com
+  // once that mailbox exists; it is the only place the address appears.
+  contactEmail: "caecilia@schwegler.ch"
 };
