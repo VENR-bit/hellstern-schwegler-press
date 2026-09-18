@@ -37,11 +37,16 @@ widen the SPF record, which today reads `v=spf1 -all` (the domain declares it
 sends no mail at all).
 
 **2. Author photograph — done.**
-`assets/img/author.jpg`, cropped to 4:5 and stripped of EXIF. It is shown in
-full colour deliberately: the page is otherwise near-monochrome, so the robe is
-the one warm element on the site. To replace it, drop in another 4:5 image at
-the same path. If the file is ever missing, a "Portrait forthcoming" placeholder
-takes its place automatically.
+`assets/img/author.jpg`, cropped to 4:5, stripped of EXIF, 800 × 1000.
+
+It is a black-and-white frame carrying a deliberate cool duotone, keyed to the
+site tokens: shadows to the near-black ink, midtones pulled toward the pen blue
+(#333C56), highlights to the paper. That is why it sits with the page instead of
+reading as a neutral grey photo dropped onto a cool ground. To replace it, drop
+in another 4:5 image at the same path — and if you want the same treatment, the
+recipe is `ImageOps.colorize(gray, black=(18,20,26), white=(243,244,246),
+mid=(84,91,110))`. If the file is ever missing, a "Portrait forthcoming"
+placeholder takes its place automatically.
 
 **3. Confirm the press name.**
 The brief said *Hellstern Press*; the logo says *Hellstern Schwegler Press*. The
