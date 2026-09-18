@@ -14,6 +14,11 @@ if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Spectral:ital,wght@0,200;0,300;0,400;1,300;1,400&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>
+.masthead__nav[data-collapsed]{display:flex}
+.nav-toggle{display:none}
+</style></noscript>
+
 <meta property="og:title" content="The Door That Is Already Open">
 <meta property="og:description" content="An excerpt from Rising and Falling by Bhante Homagama Rewatha.">
 </head>
@@ -22,10 +27,10 @@ if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)
 <header class="frame masthead">
   <a class="mark" href="index.html">
     <img src="assets/img/star-mandala-mono.svg" alt="" width="1000" height="1000">
-    <span class="mark__name">Hellstern Schwegler Press</span>
+    <span class="mark__name">Hellstern</span>
   </a>
   <div class="masthead__end">
-    <nav aria-label="Primary">
+    <nav id="site-nav" class="masthead__nav" data-collapsed aria-label="Primary">
     <a href="index.html">The Press</a>
     <a href="rising-and-falling.html">Rising and Falling</a>
     <a href="excerpt.html" aria-current="page">Excerpt</a>
@@ -35,6 +40,14 @@ if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)
       <svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
         <path d="M12 2.8 A9.2 9.2 0 0 0 12 21.2 Z" fill="currentColor"></path>
+      </svg>
+    </button>
+    <button class="nav-toggle" type="button" data-nav-toggle
+            aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <svg class="nav-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <line x1="3.5" y1="7" x2="20.5" y2="7"></line>
+        <line x1="3.5" y1="12" x2="20.5" y2="12"></line>
+        <line x1="3.5" y1="17" x2="20.5" y2="17"></line>
       </svg>
     </button>
   </div>
@@ -155,6 +168,7 @@ if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)
 </footer>
 
 <script src="assets/js/theme.js"></script>
+<script src="assets/js/nav.js"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/signup.js"></script>
 </body>

@@ -92,6 +92,18 @@ function is the usual reason a deployment returns 404.
 Mailchimp, Buttondown, Formspark and Formspree also work: paste their form
 action URL into `signupEndpoint` instead.
 
+## Navigation
+
+The masthead wordmark is just **Hellstern**; the full press name stays in the
+page titles, the press-page copy and the colophon.
+
+Below 46rem the three links collapse into a dropdown panel. The nav ships with
+`data-collapsed` in the markup and `assets/js/nav.js` owns the state from there,
+so there is no flash of an open menu on load. A `<noscript>` block in each page
+unhides the links and hides the button, so the site is never left without
+navigation if scripting is off. The panel closes on Escape (returning focus to
+the button), on an outside click, and on following a link.
+
 ## Design notes
 
 - **The cover is drawn in CSS, at the real trim.** The 2:3 proportion is the

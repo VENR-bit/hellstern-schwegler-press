@@ -184,6 +184,7 @@ p { margin: 0 0 1.35em; }
 /* --- masthead ------------------------------------------------------------ */
 
 .masthead {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,16 +212,14 @@ p { margin: 0 0 1.35em; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   line-height: 1.35;
-  max-width: 11rem;
 }
 
-.masthead nav {
+.masthead__nav {
   display: flex;
-  gap: 0.9rem 1.5rem;
+  gap: 1.75rem;
   flex-wrap: wrap;
 }
-@media (min-width: 45rem) { .masthead nav { gap: 1.75rem; } }
-.masthead nav a {
+.masthead__nav a {
   font-family: var(--grotesk);
   font-size: var(--step--1);
   font-weight: 500;
@@ -229,8 +228,8 @@ p { margin: 0 0 1.35em; }
   color: var(--ink-soft);
   text-decoration: none;
 }
-.masthead nav a:hover,
-.masthead nav a[aria-current="page"] { color: var(--ink); }
+.masthead__nav a:hover,
+.masthead__nav a[aria-current="page"] { color: var(--ink); }
 
 /* --- hero ---------------------------------------------------------------- */
 
@@ -645,4 +644,78 @@ p { margin: 0 0 1.35em; }
 
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle__icon { transition: none; }
+}
+
+
+/* --- mobile menu ----------------------------------------------------------
+   Below 46rem the three links no longer sit beside the wordmark, so they
+   collapse into a panel. The nav ships marked collapsed and JS owns the state;
+   the <noscript> block in each page unhides it when scripting is off, so the
+   site is never left without navigation. */
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  flex: none;
+  transition: color 160ms ease;
+}
+.nav-toggle:hover { color: var(--ink); }
+
+.nav-toggle__icon { width: 1.1rem; height: 1.1rem; display: block; }
+.nav-toggle__icon line {
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  transform-origin: 12px 12px;
+  transition: transform 260ms cubic-bezier(.4, 0, .2, 1), opacity 160ms ease;
+}
+
+/* the three rules fold into a cross */
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon line:nth-of-type(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon line:nth-of-type(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon line:nth-of-type(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+@media (max-width: 45.999rem) {
+  .masthead__nav {
+    position: absolute;
+    top: calc(100% + 0.85rem);
+    right: 1.5rem;
+    z-index: 20;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+    min-width: 12.5rem;
+    padding-block: 0.4rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    box-shadow: var(--book-shadow);
+  }
+  .masthead__nav[data-collapsed] { display: none; }
+  .masthead__nav a {
+    padding: 0.75rem 1.35rem;
+  }
+  .masthead__nav a[aria-current="page"] { color: var(--ink); }
+}
+
+@media (min-width: 46rem) {
+  .nav-toggle { display: none; }
+  /* the attribute is JS state for the panel only; inline links ignore it */
+  .masthead__nav[data-collapsed] { display: flex; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle__icon line { transition: none; }
 }
